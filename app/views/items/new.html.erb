@@ -1,0 +1,31 @@
+List: <%= @list.name %> (<%= link_to "back",new_list_path %>)
+
+<hr />
+<%= form_for @item, :url => { :action => :create, :id => @list.id } do |f| -%>
+    Name: <%= f.text_field :name %> <br />
+    Status: <%= f.text_field :status%>  <br />
+    <%= f.submit %>
+<% end -%>
+
+<hr />
+
+<% if @list.items.exists? %>
+    <table border =1 class="table table-striped">
+      <tr>
+        <th>Name </th>
+        <th>Status</th>
+      </tr>
+      <% for item in @list.items %>
+          <% if !item.name.nil? %>
+              <tr>
+                <td><%= item.name %></td>
+                <td><%= item.status %></td>
+              </tr>
+          <% end %>
+      <% end %>
+
+    </table>
+<% else %>
+    No Items yet
+<% end %>
+

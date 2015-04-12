@@ -1,0 +1,21 @@
+<%- model_class = List -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+List names: <br />
+<% if !@list.blank? %>
+    <table border =1 class="table table-striped">
+      <tr>
+        <th>Name </th>
+      </tr>
+      <% for item in @lists %>
+          <tr>
+            <td><%= link_to item.name, :controller => :items, :action => :new, :id =>item.id %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    No List yet
+<% end %>
+
+<%= render :partial => 'form' %>
