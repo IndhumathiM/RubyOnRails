@@ -18,8 +18,11 @@ List: <%= @list.name %> (<%= link_to "back",new_list_path %>)
       <% for item in @list.items %>
           <% if !item.name.nil? %>
               <tr>
-                <td><%= item.name %></td>
+                <td><%= link_to item.name, :controller => :items, :action => :update, :id =>item.id %></td>
                 <td><%= item.status %></td>
+                <td><%= link_to "Move_up", :controller => :lists, :action => :move_up,:id =>item.id %></td>
+                <td><%= link_to "Move_down",lists_move_down_path, :id =>item.id%></td>
+
               </tr>
           <% end %>
       <% end %>

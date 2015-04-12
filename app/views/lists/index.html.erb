@@ -12,7 +12,9 @@
     </tr>
   </thead>
   <tbody>
+  <ul>
     <% @lists.each do |list| %>
+        <li>
       <tr>
         <td><%= link_to list.id, list_path(list) %></td>
         <td><%= list.name %></td>
@@ -27,7 +29,9 @@
                       :class => 'btn btn-xs btn-danger' %>
         </td>
       </tr>
+        </li>
     <% end %>
+  </ul>
   </tbody>
 </table>
 

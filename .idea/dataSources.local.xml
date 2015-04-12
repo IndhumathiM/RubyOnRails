@@ -2,5 +2,8 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="Rails boottask: development" uuid="75de25d0-503a-4f22-9102-0c5c69d38466" />
+    <data-source name="Rails boottask: development" uuid="f51afee0-9a66-439f-a0bc-7ecbea72fe71">
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>

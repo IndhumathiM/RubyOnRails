@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   resources :items
 
+
   resources :lists
+    get 'lists/move_up'
+    get 'lists/move_down'
 
   root :to => "lists#new"
+
+ # match "/lists/move_up " => "lists#move_up", :as => 'move_up'
+  #match "/lists/move_down " => "lists#move_down", :as => 'move_down'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

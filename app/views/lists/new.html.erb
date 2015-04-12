@@ -9,8 +9,10 @@ List names: <br />
         <th>Name </th>
       </tr>
       <% for item in @lists %>
-          <tr>
+         <tr>
             <td><%= link_to item.name, :controller => :items, :action => :new, :id =>item.id %></td>
+            <td><%= link_to "Move_up", :controller => :lists, :action => :move_up,:id =>item.id %></td>
+            <td><%= link_to "Move_down",lists_move_down_path, :id =>item.id%></td>
           </tr>
       <% end %>
     </table>
