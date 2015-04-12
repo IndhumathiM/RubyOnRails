@@ -63,7 +63,20 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def move_up
+    @item=Item.find(params[:id])
+    @foo=@item.list_id
+    @item.decrement_position
+    redirect_to items_path(foo_param: @foo), notice: 'Todo item was successfully moved up.'
+  end
 
+  def move_down
+
+    @item=Item.find(params[:id])
+    @foo=@item.list_id
+    @item.increment_position
+    redirect_to items_path(foo_param: @foo), notice: 'Todo item was successfully moved down.'
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item

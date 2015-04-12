@@ -17,18 +17,21 @@ class ListsController < ApplicationController
     @list=List.new
     @lists=List.all
   end
-  def move_down
-    if @lists.size < 1
-      @list.position = 1
-    else
-      @list.position = @lists.position+1
-    end
-
-  end
-
   def move_up
-    @list.insert_at(1)
+    @list=List.find(params[:id])
+    @foo=@list
+    @list.decrement_position
+    redirect_to list_path(foo_param: @foo), notice: 'Todo List was successfully moved up.'
   end
+
+  def move_down
+
+    @list=List.find(params[:id])
+    @foo=@list
+    @list.increment_position
+    redirect_to list_path(foo_param: @foo), notice: 'Todo List was successfully moved down.'
+  end
+
 
 
 
