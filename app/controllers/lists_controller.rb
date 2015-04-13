@@ -80,22 +80,6 @@ class ListsController < ApplicationController
     end
   end
 
-  def move
-
-    if ["move_lower", "move_higher", "move_to_top", "move_to_bottom"].include?(params[:method]) and params[:list_id] =~ /^\d+$/
-      #if the incoming params contain any of these methods and a numeric book_id,
-      #let's find the book with that id and send it the acts_as_list specific method
-      #that rode in with the params from whatever link was clicked on
-      List.find(params[:list_id]).send(params[:method])
-    end
-    #after we're done updating the position (which gets done in the background
-    #thanks to acts_as_list, let's just go back to the list page,
-    #refreshing the page basically because I didn't say this was an RJS
-    #tutorial, maybe next time
-    redirect_to :action => :list
-  end
-
-
 
   private
     # Use callbacks to share common setup or constraints between actions.
