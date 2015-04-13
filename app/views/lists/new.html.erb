@@ -7,13 +7,16 @@ List names: <br />
     <table border =1 class="table table-striped">
       <tr>
         <th>Name </th>
+        <th></th>
+        <th></th>
       </tr>
       <% for item in @lists %>
          <tr>
             <td><%= link_to item.name, :controller => :items, :action => :new, :id =>item.id %></td>
-            <td><%= link_to "Move_up", :controller => :lists, :action => :move_up,:id =>item.id %></td>
-            <td><%= link_to "Move_down",lists_move_down_path, :id =>item.id%></td>
-          </tr>
+           <td><%= link_to "Edit", :controller => :lists, :action => :edit,:id =>item.id %></td>
+           <td><%= link_to "Delete",:controller => :lists, :action => :destroy, :id =>item.id%></td>
+
+            </tr>
       <% end %>
     </table>
 <% else %>

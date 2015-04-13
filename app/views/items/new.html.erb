@@ -14,13 +14,22 @@ List: <%= @list.name %> (<%= link_to "back",new_list_path %>)
       <tr>
         <th>Name </th>
         <th>Status</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+
       </tr>
       <% for item in @list.items %>
           <% if !item.name.nil? %>
               <tr>
-                <td><%= link_to item.name, :controller => :items, :action => :update, :id =>item.id %></td>
+                <td><%=  item.name %></td>
                 <td><%= item.status %></td>
+                <td><%= link_to "Edit", :controller => :items, :action => :edit,:id =>item.id %></td>
+                <td><%= link_to "Delete",:controller => :items, :action => :destroy, :id =>item.id%></td>
+
                 <td><%= link_to "Move_up", :controller => :lists, :action => :move_up,:id =>item.id %></td>
+
                 <td><%= link_to "Move_down",lists_move_down_path, :id =>item.id%></td>
 
               </tr>
